@@ -63,10 +63,12 @@
 
                                     <a class="dropdown-item" href="{{ route('profile.show_password_form') }}">
                                         Change Password
+
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/users') }}">
-                                        Users
-                                    </a>
+                                   @if(Auth::user()->is_admin === 1)
+                                        <a class="dropdown-item" href="{{ url('/users') }}">Users</a>
+                                    @endif
+
 
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
